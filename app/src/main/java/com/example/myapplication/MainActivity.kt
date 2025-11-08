@@ -53,9 +53,9 @@ fun MapLibreMap(modifier: Modifier = Modifier) {
     DisposableEffect(Unit) {
         mapView.onStart()
         mapView.getMapAsync { map ->
-            map.setStyle("https://demotiles.maplibre.org/style.json") {
+            map.setStyle(Style.Builder().fromUri("asset://osm-style.json")) {
                 map.cameraPosition = CameraPosition.Builder()
-                    .target(LatLng(52.5200, 13.4050)) // Berlin
+                    .target(LatLng(52.5200, 13.4050))
                     .zoom(12.0)
                     .build()
             }
